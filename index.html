@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/11fad7c8a5.js" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album N.E.K.H</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+   
+    <style>
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent !important;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            z-index: 1;
+            background-color: #95e2fc;
+            position: relative;
+
+        }
+
+        body:before {
+            content: "";
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+            background: url(./albumpoto.png);
+        }
+
+        .bg {
+            opacity: 0;
+            z-index: -1;
+            width: 100vw;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 60px;
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            display: flex;
+            width: 100%;
+            height: 80px;
+            background-color: #b5e9fa;
+            text-align: center;
+            align-items: center;
+            font-family: "Fredoka One", sans-serif;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+            color: #2ba8cf;
+            letter-spacing: 4px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .col-lg-6 {
+            width: 40%;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            width: 100%;
+            padding: 60px;
+            background-color: #80cfe8;
+            box-shadow: 0 0px 20px rgba(0, 0, 0, .25);
+            border-radius: 20px;
+            font-family: "Fredoka One", sans-serif;
+            color: #dff7ff;
+            text-align: center;
+        }
+
+        .card img {
+            border-radius: 15px;
+            opacity: .9;
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .default-padding {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .content {
+            margin-top: 80px;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        img {
+            max-width: 100%;
+            margin: 0;
+        }
+
+        h2 {
+            letter-spacing: 1px;
+        }
+        button{
+            cursor: pointer;
+            outline: none !important;
+            border: none !important;
+        }
+
+        .btn {
+            width: 40px;
+            height: 40px;
+            box-shadow: 2px 2px 25px rgba(0, 0, 0, .15);
+            border: none;
+            color: #dff7ff;
+            background: none;
+            border-radius: 100%;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+
+        .btn:disabled{
+            opacity: .5;
+            cursor: none;
+            pointer-events: none;
+            touch-action: none;
+        }
+
+        .progress {
+            width: 80%;
+            background-color: rgba(0, 0, 0, .1);
+            height: 6px;
+            border-radius: 6px;
+            margin: auto;
+        }
+
+        .progress-inner {
+            background-color: #d9f6ff;
+            height: 6px;
+            border-radius: 6px;
+            transition: all .2s;
+        }
+
+        .flex-between{
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin: auto;
+        }
+        .flex-center{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <img class='bg' src="./albumpoto.png" alt=""> -->
+    <div class="header">
+        <h1>Album N.E.K.H</h1>
+    </div>
+    <br>
+    <div class="content">
+        <section class="default-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class='card hafizh'>
+                            <img src="./hafizh2.png" alt="">
+                            <br>
+                            <p class="text-center">"Bukan bahagia yang menjadikan kita bersyukur, tetapi dengan
+                                bersyukurlah yang akan menjadikan hidup kita bahagia."</p>
+                            <br>
+                            <h2>Top Playlist</h2>
+                            <br>
+                            <p class="judullagu">It's Only Me</p>
+                            <p class="penyanyi">Kaleb J</p>
+                            <br>
+                            <div id="progres" class="progress">
+                                <div id="progress" class="progress-inner"></div>
+                            </div>
+                            <br>
+                            <div class="flex-between">
+                                <span id="current">0:00</span>
+                                <span id="max">0:00</span>
+                            </div>
+                            <br>
+                            <audio src="./hafizh/Kaleb J - It's Only Me Official Lyric Video.mp3" id="audio"></audio>
+                            <button id="prev" disabled class="btn"> <i
+                                    class="fas fa-step-backward"></i></button>
+                            <button id="play" class="btn"> <i class="fas fa-play"></i></button>
+                            <button id="next" class="btn"> <i
+                                    class="fas fa-step-forward"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class='card nayla'>
+                            <img src="./nayla.png" alt="">
+                            <br>
+                            <p class="text-center">"Bukan bahagia yang menjadikan kita bersyukur, tetapi dengan
+                                bersyukurlah yang akan menjadikan hidup kita bahagia."</p>
+                            <br>
+                            <h2>Top Playlist</h2>
+                            <br>
+                            <p class="judullagu">Akhir Tak Bahagia</p>
+                            <p class="penyanyi">Misellia</p>
+                            <br>
+                             <div id="progres" class="progress">
+                                <div id="progress" class="progress-inner"></div>
+                            </div>
+                            <br>
+                            <div class="flex-between">
+                                <span id="current">0:00</span>
+                                <span id="max">0:00</span>
+                            </div>
+                            <br>
+                            <audio id="audio">
+                                <source id="source"
+                                    src="./nayla/y2mate.com - Akhir Tak Bahagia  Misellia Official Music Video.mp3"
+                                    type="audio/mp3">
+                            </audio>
+                            <button id="prev" disabled class="btn"> <i
+                                class="fas fa-step-backward"></i></button>
+                            <button id="play" class="btn"> <i class="fas fa-play"></i></button>
+                            <button id="next" class="btn"> <i
+                                    class="fas fa-step-forward"></i></button>
+                        </div>
+                    </div>         
+                    <div class="col-lg-6">
+                        <div class='card edrick'>
+                            <img src="./edrick.jpg" alt="">
+                            <br>
+                            <p class="text-center">"Bukan bahagia yang menjadikan kita bersyukur, tetapi dengan
+                                bersyukurlah yang akan menjadikan hidup kita bahagia."</p>
+                            <br>
+                            <h2>Top Playlist</h2>
+                            <br>
+                            <p class="judullagu">Superhero</p>
+                            <p class="penyanyi">Lauv</p>
+                            <br>
+                            <div id="progres" class="progress">
+                                <div id="progress" class="progress-inner"></div>
+                            </div>
+                            <br>
+                            <div class="flex-between">
+                                <span id="current">0:00</span>
+                                <span id="max">0:00</span>
+                            </div>
+                            <br>
+                            <audio id="audio">
+                                <source id="source"
+                                    src="./edrick/Lauv - Superhero (Lyrics) (128 kbps).mp3"
+                                    type="audio/mp3">
+                            </audio>
+                            <button id="prev" disabled  class="btn"> <i
+                                    class="fas fa-step-backward"></i></button>
+                            <button id="play" class="btn"> <i class="fas fa-play"></i></button>
+                            <button id="next"  class="btn"> <i
+                                    class="fas fa-step-forward"></i></button>
+                        </div>
+                    </div>         
+                    <div class="col-lg-6">
+                        <div class='card kepi'>
+                            <img src="./kepi.png" alt="">
+                            <br>
+                            <p class="text-center">"Bukan bahagia yang menjadikan kita bersyukur, tetapi dengan
+                                bersyukurlah yang akan menjadikan hidup kita bahagia."</p>
+                            <br>
+                            <h2>Top Playlist</h2>
+                            <br>
+                            <p class="judullagu">Beside You</p>
+                            <p class="penyanyi">keshi</p>
+                            <br>
+                            <div id="progres" class="progress">
+                                <div id="progress" class="progress-inner"></div>
+                            </div>
+                            <br>
+                            <div class="flex-between">
+                                <span id="current">0:00</span>
+                                <span id="max">0:00</span>
+                            </div>
+                            <br>
+                            <audio id="audio">
+                                <source id="source"
+                                    src="https://cdn.discordapp.com/attachments/881541248522022952/901489446103433216/y2mate.com_-_keshi_beside_you_Lyric_Video.mp3"
+                                    type="audio/mp3">
+                            </audio>
+                            <button id="prev" disabled  class="btn"> <i
+                                    class="fas fa-step-backward"></i></button>
+                            <button id="play" class="btn"> <i class="fas fa-play"></i></button>
+                            <button id="next"  class="btn"> <i
+                                    class="fas fa-step-forward"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script>
+        var listmusikedrick = [{ link: "./edrick/Lauv - Superhero (Lyrics) (128 kbps).mp3", nama: "Superhero", penyanyi: "Lauv" }, { link: "./edrick/Chord Overstreet - Hold On (Lyric Video) (128 kbps).mp3", nama: "Hold On", penyanyi: "Chord Overstreet" }, { link: "./edrick/One Day (128 kbps).mp3", nama: "One Day", penyanyi: "Tate McRae" }, { link: "./edrick/JP Saxe, Julia Michaels - If The World Was Ending (Lyrics) (128 kbps).mp3", nama: "If The World Was Ending", penyanyi: "JP Saxe, Julia Michaels" }, { link: "./edrick/XXXTENTACION - changes (128 kbps).mp3", nama: "changes", penyanyi: "XXXTENTACION" }, { link: "./edrick/Noah Cyrus - July (Official Video) (128 kbps).mp3", nama: "July", penyanyi: "Noah Cyrus" }, { link: "./edrick/Lewis Capaldi - Bruises (Lyrics) (128 kbps).mp3", nama: "Bruises", penyanyi: "Lewis Capaldi" }, { link: "./edrick/PUBLIC - Make You Mine (Official Lyric Video) (128 kbps).mp3", nama: "Make You Mine", penyanyi: "PUBLIC" }, { link: "./edrick/Before You Go (Acoustic) (128 kbps).mp3", nama: "Before You Go - Acoustic", penyanyi: "Amber Leigh Irish" }];
+        var listmusikhafizh = [{ link: "./hafizh/Kaleb J - It's Only Me Official Lyric Video.mp3", nama: "It's Only Me", penyanyi: "Kaleb J" }, { link: "./hafizh/DiE4u.mp3", nama: "DiE4u", penyanyi: "Bring Me The Horizon" }, { link: "./hafizh/Iridescent - Linkin Park (A Thousands Suns).mp3", nama: "Iridescent", penyanyi: "Linkin Park" }, { link: "./hafizh/Carry On.mp3", nama: "Carry On", penyanyi: "Falling In Reverse" }, { link: "./hafizh/ONE OK ROCK_ Renegades [OFFICIAL VIDEO].mp3", nama: "Renegades", penyanyi: "ONE OK ROCK" }, { link: "./hafizh/Goody Grace - Scumbag [Acoustic] (Official Audio).mp3", nama: "Scumbag (Acoustic)", penyanyi: "Goody Grace" }, { link: "./hafizh/Falling In Reverse - _Popular Monster_.mp3", nama: "Popular Monster", penyanyi: "Falling In Reverse" }, { link: "./hafizh/Panic! At The Disco - Golden Days (Official Audio).mp3", nama: "Golden Days", penyanyi: "Panic! At The Disco" }, { link: "./hafizh/Teardrops.mp3", nama: "Teardrops", penyanyi: "Bring Me The Horizon" }, { link: "./hafizh/The Faim -  Where The River Runs (Audio).mp3", nama: "Where The River Runs", penyanyi: "The Faim" }];
+        var listmusiknayla = [{ link: "./nayla/y2mate.com - Akhir Tak Bahagia  Misellia Official Music Video.mp3", nama: "Akhir Tak Bahagia", penyanyi: "Misellia" }, { link: "./nayla/y2mate.com - Arash Buana  LMAO i just broke up Official Lyric Video.mp3", nama: "LMAO i just broke up", penyanyi: "Arash Buana" }, { link: "./nayla/y2mate.com - Ardhito Pramono  bitterlove Official Video.mp3", nama: "Bitterlove", penyanyi: "Ardhito Pramono" }, { link: "./nayla/y2mate.com - Ardhito Pramono ft Aurélie Moeremans  I Just Couldnt Save You Tonight Story of Kale  OMPS.mp3", nama: "I Just Couldnt Save You Tonight", penyanyi: "Ardhito Pramono ft Aurélie Moeremans" }, { link: "./nayla/y2mate.com - HIVI  Remaja Official Lyric Video.mp3", nama: "Remaja", penyanyi: "HIVI" }, { link: "./nayla/y2mate.com - HONNE  Location Unknown  Lyrics.mp3", nama: "Location Unknown", penyanyi: "HONNE" }, { link: "./nayla/y2mate.com - if u could see me cryin in my room  Arash Buana Raissa Anggiani official lyric video.mp3", nama: "if u could see me cryin in my room", penyanyi: "Arash Buana Raissa Anggiani" }, { link: "./nayla/y2mate.com - Juicy Luicy  Lantas Official Lyric Video.mp3", nama: "Lantas", penyanyi: "Juicy Luicy" }, { link: "./nayla/y2mate.com - Pamungkas  Kenangan Manis Lyrics Video.mp3", nama: "Kenangan Manis", penyanyi: "Pamungkas" }, { link: "./nayla/y2mate.com - Pamungkas  Risalah Hati Official Audio.mp3", nama: "Risalah Hati", penyanyi: "Pamungkas" }, { link: "./nayla/y2mate.com - Rizky Febian Ziva Magnolya  Terlukis Indah Official Lyric Video.mp3", nama: "Terlukis Indah", penyanyi: "Rizky Febian Ziva Magnolya" }, { link: "./nayla/y2mate.com - TULUS  Pamit Official Lyric Video.mp3", nama: "Pamit", penyanyi: "TULUS" }];
+        var listmusikkepi = [{ link: "./edrick/Lauv - Superhero (Lyrics) (128 kbps).mp3", nama: "Superhero", penyanyi: "Lauv" }, { link: "./edrick/Chord Overstreet - Hold On (Lyric Video) (128 kbps).mp3", nama: "Hold On", penyanyi: "Chord Overstreet" }, { link: "./edrick/One Day (128 kbps).mp3", nama: "One Day", penyanyi: "Tate McRae" }];
+
+        function formatTime(sec) {
+            let minutes = Math.floor(sec / 60);
+            let seconds = Math.floor(sec - minutes * 60);
+            if (seconds < 10) {
+                seconds = `0${seconds}`;
+            }
+            return `${minutes}:${seconds}`;
+        }
+        
+
+        $(".card").each(function () {  
+            var isplayed = false;
+            var $this = $(this);
+            var track = $(this).find("audio").get(0);
+            var progres = $(this).find("#progres").get(0);
+            var isMove = false;
+            var currenttrack = 0;
+            var curlist = $this.hasClass("edrick") ? listmusikedrick : $this.hasClass("nayla") ?listmusiknayla: $this.hasClass("hafizh") ? listmusikhafizh : $this.hasClass("kepi") ? listmusikkepi : [];
+            function updatetrack () { 
+                track.src = curlist[currenttrack].link;
+                $this.find(".judullagu").text(curlist[currenttrack].nama);
+                $this.find(".penyanyi").text(curlist[currenttrack].penyanyi);
+            }
+
+            if (curlist.length > 0) {
+                updatetrack();
+            }
+
+            $this.find("#prev").on("click",  function () {  
+                if (currenttrack > 0) {
+                    currenttrack -= 1;
+                    $this.find("i").addClass("fa-play");
+                    $this.find("i").removeClass("fa-pause");
+                    track.pause();
+                    track.currentTime = 0;
+                    updatetrack();
+                    track.load();
+                    setTimeout(function () {
+                        track.load();
+                    }, 500);
+                }
+            });
+
+            $this.find("#next").on("click",  function () {  
+                if (currenttrack < curlist.length) {
+                    currenttrack += 1;
+                    $this.find("i").addClass("fa-play");
+                    $this.find("i").removeClass("fa-pause");
+                    track.pause();
+                    track.currentTime = 0;
+                    updatetrack();
+                    track.load();
+                    setTimeout(function () {
+                        track.load();
+                    }, 500);
+                }
+            });
+
+            track.addEventListener("ended", function () {  
+                $this.find("#next").trigger("click");
+                setTimeout(function () {
+                    track.load();
+                    track.play();
+                    $this.find("i").addClass("fa-pause");
+                    $this.find("i").removeClass("fa-play");
+                }, 500);
+            });
+
+            function scurb(e) {
+                const currentTime = ( (e.clientX - progres.getBoundingClientRect().left) / progres.offsetWidth ) * track.duration;
+                track.currentTime = currentTime;
+            }
+
+            function progressValue() {
+                $this.find("#progress").width(((track.currentTime / track.duration) * 100).toString() + "%");
+                $this.find("#current").text(formatTime(track.currentTime));
+                $this.find("#max").text(formatTime(track.duration));
+
+                if (currenttrack > 0) {
+                    $this.find("#prev").prop("disabled", false);
+                } else {
+                    $this.find("#prev").prop("disabled", true);
+                }
+
+                if (currenttrack < curlist.length - 1) {
+                    $this.find("#next").prop("disabled", false);
+                } else {
+                    $this.find("#next").prop("disabled", true);
+                }
+            }
+
+            progres.addEventListener("pointerdown", (e) => {
+                scurb(e);
+                isMove = true;
+            });
+
+            document.addEventListener("pointermove", (e) => {
+                if (isMove) {
+                    scurb(e); 
+                    track.muted = true;
+                }
+            });
+
+            document.addEventListener("pointerup", () => {
+                isMove = false;
+                track.muted = false;
+            });
+
+            setInterval(progressValue, 500);
+
+            $(this).find("#play").on("click", function () {  
+                if (isplayed) {
+                    $this.find("#audio").get(0).pause();
+                    isplayed = false;
+                    $(this).find("i").addClass("fa-play");
+                    $(this).find("i").removeClass("fa-pause");
+                } else{
+                    $this.find("#audio").get(0).play();
+                    isplayed = true;
+                    $(this).find("i").addClass("fa-pause");
+                    $(this).find("i").removeClass("fa-play");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
